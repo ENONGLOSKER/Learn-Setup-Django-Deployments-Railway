@@ -14,6 +14,7 @@
   pip install whitenoise
   ```
 📁&nbsp;&nbsp; setup whitenoise di settings.py
+
 tambahkan pada static file
 ```
 import os
@@ -37,6 +38,20 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 ```
+tambahakan pada urls.py (pada url project)
+```
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import path
+
+urlpatterns = [
+    # URL pattern lainnya
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
 - 📍&nbsp;&nbsp; collectstatic
   ```
   python manage.py collectstatic
@@ -44,20 +59,6 @@ MIDDLEWARE = [
 - 📍&nbsp;&nbsp; buat file Procfile (tanpa extensi)
   ```
   web: gunicorn myproject.wsgi --log-file -
-  ```
-- 📍&nbsp;&nbsp; settings urls.py (pada url project)
-  ```
-  from django.conf import settings
-  from django.conf.urls.static import static
-  from django.urls import path
-  
-  urlpatterns = [
-      # URL pattern lainnya
-  ]
-  
-  if settings.DEBUG:
-      urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
   ```
 - 📍&nbsp;&nbsp; generet file requirements
   ```
@@ -67,7 +68,10 @@ MIDDLEWARE = [
   ```
    python-3.10.2
   ```
-- 📍&nbsp;&nbsp; atur host
+- 📍&nbsp;&nbsp; atur host menjadi global
   ```
    ALLOWED_HOST = ['*']
   ```
+- 📗&nbsp;&nbsp; setelah selesai upload/push ke repositori pada github nya
+- 📗&nbsp;&nbsp; setelah selesai upload/push ke repositori pada github nya
+  
