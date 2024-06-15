@@ -77,12 +77,10 @@ if settings.DEBUG:
 <div class="" align="center">
     mengaktifkan root direktori
     <img src="img/dep1.PNG"/>
-    <br>
     mengeneret url
     <img src="img/dep2.PNG"/>
-    <br>
     deployments (jika sudah selesai dan berhasil maka warna nya akan hijau dan jika sudah mengeneret url maka akan muncul link, namun pada saat pertama kali ini akan active sebelum generet url)
     <img src="img/dep3.PNG"/>
-    <br>
+    
 </div>
   
